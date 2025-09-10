@@ -31,9 +31,9 @@ chat-app/
 
 ### 3. To Run Frontend
 
-cd ../frontend
-npm install
-ionic serve
+- cd ../frontend
+- npm install
+- ionic serve
 
 
 ## How to Use
