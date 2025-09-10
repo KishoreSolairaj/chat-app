@@ -1,0 +1,74 @@
+
+#glass-container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#glass-container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#glass-container a {
+  text-decoration: none;
+}
+
+.name-container{
+  text-align: center;
+  margin: 0px auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30%;
+  width: 100%;
+}
+
+
+.ion-input-container { --background: rgba(0, 0, 0, 0); --border-color: rgba(148, 137, 137, 0); border: 1px solid #eeeeee91; width: 90%; margin: 0px auto; border-radius: 15px;}
+
+ion-button {
+  --background: #01010b9e;
+    --background-hover: #000000;
+    --background-activated: #88f4be;
+    --background-focused: #88f4be;
+    --color: white;
+    --border-radius: 14px;
+    --border-color: #eeeeee91;
+    --border-style: solid;
+    --border-width: 1px;
+    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
+    --ripple-color: #1443ff;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+
+}
+
+#glass-container {
+  text-align: center;
+  margin: 0px auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgb(2 50 90 / 34%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 25%;
+  height: 200px;
+}
+
+
+.chat-container {
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100');
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}

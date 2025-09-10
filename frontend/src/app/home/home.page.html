@@ -1,0 +1,20 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="chat-container">
+    <div id="glass-container">
+      <div class="name-container">
+        <ion-item class="ion-input-container">
+          <form [formGroup]="nameForm">
+            <ion-input placeholder="Enter Name And Start..." formControlName="name"></ion-input>
+          </form>
+        </ion-item>
+        <div>
+          <ion-button [disabled]="nameForm.get('name')?.value?.length == 0" (click)="addPersonToRoute()">Start Chat <ion-icon name="chatbubble"></ion-icon></ion-button>
+        </div>
+      </div>
+
+      
+    </div>
+  </div>
+</ion-content>

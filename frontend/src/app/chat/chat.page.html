@@ -1,0 +1,106 @@
+
+
+<ion-content [fullscreen]="true">
+  <div class="chat-container">
+    <div id="glass-container">
+      <div *ngIf="selectedForChat == null">
+        <h2 class="chat-list-headline">  <ion-icon name="arrow-back-outline" class="exit-chat" (click)="back()" ></ion-icon> Chat List ({{activePeople}})</h2>
+        <p class="chat-list-headline" *ngIf="activePeople == 1" style="text-align: center; font-size: 12px;  justify-content: center;">Wait for someone to join your lobby...</p>
+        <ion-grid class="chat-container personal-chat-profile-list"  (click)="SelectedForGroupChat(GroupChat)">
+          <ion-row size="12" class="chat-profile-list " >
+            <ion-col size="2" class="img-container">
+              <ion-avatar class="chat-avatar">
+                <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="9">
+              <ion-label>
+                <div class="personal-name-container">
+                  <p class="personName">{{ GroupChat.name }}</p> 
+                </div>
+              </ion-label>
+            </ion-col>
+            <ion-col size="1">
+              <ion-label>
+                <div class="personal-name-container">
+                  <p class="personName" *ngIf="GroupChat.unreadMessageCount != 0">{{ GroupChat.unreadMessageCount }}</p> 
+                </div>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-grid class="chat-container personal-chat-profile-list" *ngFor="let user of users" (click)="SelectedForChat(user)">
+         <ion-row size="12" class="chat-profile-list " *ngIf="user.receiver_id != chatId">
+           <ion-col size="2" class="img-container">
+             <ion-avatar class="chat-avatar">
+               <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+             </ion-avatar>
+           </ion-col>
+           <ion-col size="9">
+             <ion-label>
+               <div class="personal-name-container">
+                 <p class="personName">{{ user.name }}</p> 
+               </div>
+             </ion-label>
+           </ion-col>
+
+           <ion-col size="1">
+            <ion-label>
+              <div class="personal-name-container">
+                <p class="personName" *ngIf="user.unreadMessageCount != 0">{{ user.unreadMessageCount }}</p> 
+              </div>
+            </ion-label>
+          </ion-col>
+         </ion-row>
+       </ion-grid>
+     </div>
+
+
+
+      <div class="personal-chat-container" *ngIf="selectedForChat != null">
+        <div class="name-container">
+          <ion-grid class="chat-container personal-chat-profile">
+            <ion-row size="12" class="chat-profile ">
+              <ion-col size="1.5" (click)="backFromChat()">
+                <ion-icon name="arrow-back-outline" class="chat_back_arrow" ></ion-icon>
+                <!-- <img src="assets/img/ic_arrow_left.png" alt="back_button" (click)="selectedPerson = null"> -->
+              </ion-col>
+              <ion-col size="2" class="img-container">
+                <ion-avatar class="chat-avatar">
+                  <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                </ion-avatar>
+              </ion-col>
+              <ion-col size="8.5">
+                <ion-label>
+                  <div class="personal-name-container">
+                    <p class="personName">{{selectedForChat.name}}</p> 
+                  </div>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+          <div >
+            <ul class="message-container-chat-box" >
+              <li *ngFor="let chat of this.selectedForChat?.message" [ngClass]="chatId != chat.sender_id ? 'left-align-message': 'right-align-message'">
+                <p class="chat-para " [innerHTML]="chat.message"></p>
+                <span class="created_at">{{chat.name}} | {{formatTimestamp(chat.date)}}</span>
+              </li>
+            </ul>
+        </div>
+        <div class="message-type">
+          <ion-item class="ion-input-container">
+            <form [formGroup]="nameForm" style="width: 100%;">
+              <ion-input placeholder="Message..." formControlName="name">
+                
+              </ion-input>
+              <ion-icon name="send" class="send-icon" (click)="sendMessage()"></ion-icon>
+            </form>
+          </ion-item>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</ion-content>
